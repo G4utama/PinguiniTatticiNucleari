@@ -6,7 +6,9 @@
     <!-- max 25 keyword -->
     <meta name="keyword" content="Pinguini Tattcici Nucleari, tour 2024, fake news indoor tour 2024, concerti">
     <meta name="description" content="Sito ufficiale dei Pinguini Tattici Nucleari, gruppo fondato da Riccardo">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="mini.css" media="screen and (max-width:600px)">
+    <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
     <header>
@@ -32,7 +34,17 @@
                 <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
                 <dd data-title="luogo">Palazzo del Turismo</dd>
             </div>
+            <div>
+                <dt><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></dt>
+                <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
+                <dd data-title="luogo">Palazzo del Turismo</dd>
+            </div>
             <div class="soldOut">
+                <dt><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></dt>
+                <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
+                <dd data-title="luogo">Palazzo del Turismo</dd>
+            </div>
+            <div>
                 <dt><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></dt>
                 <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
                 <dd data-title="luogo">Palazzo del Turismo</dd>
@@ -47,7 +59,7 @@
                 <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
                 <dd data-title="luogo">Palazzo del Turismo</dd>
             </div>
-            <div class="soldOut">
+            <div>
                 <dt><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></dt>
                 <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
                 <dd data-title="luogo">Palazzo del Turismo</dd>
@@ -57,17 +69,7 @@
                 <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
                 <dd data-title="luogo">Palazzo del Turismo</dd>
             </div>
-            <div class="soldOut">
-                <dt><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></dt>
-                <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
-                <dd data-title="luogo">Palazzo del Turismo</dd>
-            </div>
-            <div class="soldOut">
-                <dt><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></dt>
-                <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
-                <dd data-title="luogo">Palazzo del Turismo</dd>
-            </div>
-            <div class="soldOut">
+            <div>
                 <dt><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></dt>
                 <dd data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</dd>
                 <dd data-title="luogo">Palazzo del Turismo</dd>
@@ -104,7 +106,7 @@
             </div>
         </dl>
     </main>
-    <!--tabella
+    <!--tabella-->
     <main>
         <table>
             <caption>I prossimi concerti</caption>
@@ -119,20 +121,19 @@
             <tbody>
                 <tr>
                     <th><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></th>
-                    <td class="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</td>
-                    <td>Palazzo del Turismo</td>
-                    <td class="soldout">no</td>
+                    <td data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</td>
+                    <td data-title="luogo">Palazzo del Turismo</td>
+                    <td data-title="disponibilitaBiglietti" class="soldOut">no</td>
                 </tr>
                 <tr>
                     <th><time datetime="2024-04-03"><span>03</span> Aprile 2024</time></th>
-                    <td class="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</td>
-                    <td class="soldout">Palazzo del Turismo</td>
-                    <td class="soldout">si</td>
+                    <td data-title="citta">Jesolo (<abbr title="Venezia">VE</abbr>)</td>
+                    <td data-title="luogo">Palazzo del Turismo</td>
+                    <td data-title="disponibilitaBiglietti">si</td>
                 </tr>
             </tbody>
         </table>
     </main>
-    -->
     <footer><p>Leonardo Baldo - <span lang="en">All rights reserved</span></p></footer>
 </body>
 </html>
