@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
 }
@@ -48,7 +48,17 @@ header h1{
     line-height: 1.5em;
 }
 
-nav {
+footer{
+    background-color: var(--footerBgColor);
+    color: var(--footerTxtColor);
+    padding: 1.0em;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* nav */
+
+nav{
     background-color: var(--headerBgColor);
     color: var(--headerTxtColor);
 }
@@ -61,7 +71,9 @@ nav a:visited{
     color: var(--visitedLinkColor);
 }
 
-#menu {
+/* menu */
+
+#menu{
     text-align: center;
 }
 
@@ -78,60 +90,23 @@ nav a:visited{
    margin: 0 0.5em;
 }
 
-#breadcrumb {
+/* breadcrumb */
+
+#breadcrumb{
     padding: 1em;
 }
 
-#breadcrumb p {
+#breadcrumb p{
    max-width: 1024px;
    margin: auto; 
 }
 
-main {
-    /*background-color: var(--bgColor);*/
+/* main */
+
+main{
     color: var(--txtColor);
     margin: auto;
     width: 80%;
-}
-
-.colonne dl {
-    font-size: 90%;
-    margin: auto;
-}
-
-main.colonne {
-    column-count: 3;
-    width: 90%;
-}
-
-main.colonne div dt, main.colonne div dd {
-    display: inline;
-    text-transform: uppercase;
-}
-
-.soldOut{
-    background-image: url("images/soldout.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-dd[data-title="citta"] {
-    color: var(--flagColor);
-    font-weight: bold;
-}
-
-main.colonne time span {
-    font-weight: bold;
-}
-
-main dl div {
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-}
-
-#imgIndex {
-    width: 90%;
 }
 
 main h2{
@@ -140,12 +115,46 @@ main h2{
     font-size: 2em;
 }
 
-footer{
-    background-color: var(--footerBgColor);
-    color: var(--footerTxtColor);
-    padding: 1.0em;
-    text-align: center;
-    margin-top: auto;
+main dl div{
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+/* class */
+
+.soldout{
+    background-image: url("images/soldout.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.colonne dl{
+    font-size: 90%;
+    margin: auto;
+}
+
+main.colonne{
+    column-count: 3;
+    width: 90%;
+}
+
+main.colonne div dt, main.colonne div dd{
+    display: inline;
+    text-transform: uppercase;
+}
+
+dd[data-title="citta"]{
+    color: var(--flagColor);
+    font-weight: bold;
+}
+
+main.colonne time span{
+    font-weight: bold;
+}
+
+#imgIndex{
+    width: 90%;
 }
 
 /***** Componenti *****/
