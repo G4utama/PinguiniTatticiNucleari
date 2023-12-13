@@ -49,7 +49,7 @@ th{
 }
 
 td[data-title]:before{
-    content: attr(data-title) ":\00A0"; /* \0A00 per fare lo spazio dopo i 2 punti */
+    content: attr(data-title) ":\00A0";
     font-weight: bold;
 }
 

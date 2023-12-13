@@ -31,6 +31,11 @@ body{
     min-height:100vh;
 }
 
+.navigationHelp{
+    position: absolute;
+    text-indent: -999em;
+}
+
 header{
     background-color: var(--headerBgColor);
     color: var(--headerTxtColor);
@@ -203,6 +208,8 @@ main table{
 
 th, td{
     padding: 0.5em;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 th{
