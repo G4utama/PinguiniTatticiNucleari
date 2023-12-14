@@ -66,6 +66,20 @@
             WHERE Traccia.Album = $id";
         }
 
+        public insertNewTrack($album, $titotlo, $durata, $esplicito, $dataRadio, $urlVideo, $note) {
+            $queryInsert = "INSERT INTO Traccia(Titolo, Durata, Esplicito, URLVideo, DataRadio, Album, Note)
+                VALUES (\"$titolo\",
+                    \"$durata\",
+                    \"$esplicito\",
+                    NULLIF(\"$urlVideo\",\"\"),
+                    NULLIF(\"$dataradio\",\"\"), 
+                    NULLIF(\"$titolo\",\"\"), 
+                    NULLIF(\"$album\",\"\"), 
+                    NULLIF(\"$note\",\"\"));";
+            mysqli_query(&this->connection, &queryInsert) or die(mysqli_error($this->connection));
+            return mysqli_affected_rows(&this->connection) > 0;
+        }
+
         public function closeConnection() {
             mysqli_close($this -> connection);
         }
