@@ -44,13 +44,73 @@ if(isset($_POST['submit'])) {
     $album = pulisciInput($_POST['album']);
 
     $titolo = pulisciInput($_POST['titolo']);
+    if(strlen($titolo) <= 2) {
+        $messaggiPerForm .= "<li>Il titolo deve essere presente ed essere formato da almeno 3 caratteri</li>"
+    }
     
     $durata = pulisciInput($_POST['durata']);
+    if(strlen($durata) == 0) {
+        $messaggiPerForm .= "<li>Durata del brano non presente</li>"
+    }else{
+        if(!preg_match("/\d{2}:\d{2}/", $durata)) {
+            $messaggiPerForm .= "<li>Durata nel formato non corretto</li>"
+        }
+    }
+
+    if(isset($_POST["esplicito"])) {
+        if($_POST["esplicito"] == 'Yes') {
+            $esplicito = 1;
+        }else{
+            $esplicito = 0;
+        }
+    }else{
+        $messaggiPerForm .= "<li>Informazione sul brano esplicito non presente</li>"
+    }
     
-    ...
+    $dataRadio = pulisciInput($_POST["dataRadio"]);
+    if(strlen($dataRadio) > 0 && !preg_match("/\d{4}\-\d{2}\-\d{2}/", $dataRadio)) {
+        $messaggiPerForm .= "<li>Data di uscita nel formato non corretto: " . $dataRadio . "</li>";
+    }
+
+    $urlVideo = pulisciInput($_POST["urlVideo"]);
+    if(strlen($urlVideo) && !filter_var($urlVideo, FILTER_VALIDATE_URL)) {
+        $messaggiPerForm .= "<li>Url del video non valido</li>"
+    }
+
+    $note = pulisciInput($_POST["note"]);
+
+    if($messaggiPerForm == "") {
+        $connessione = new DBAccess();
+        $connessioneOk = $connessione -> openDBConnection();
+
+        if($connessioneOk) {
+            $resultInsert = $connessione -> insertNewTrack($album, $titolo, $durata, $esplicito, $dataRadio, $urlVideo, $note);
+            if($resultInsert) {
+                $messaggiPerForm = "<div id=\"greetings\"><p>Brano aggiunto correttamente</p</div>>";
+            }else{
+                $messaggiPerForm = "<div id=\"messageErrors\"><p>Errore nell\'inserimento del brano. Riprovare</p></div>";
+            }
+        }else{
+            $messaggiPerForm = "<div id=\"messageErrors\"><p>Errore nella connessione al DB. Riprovare</p></div>";
+        }
+    }else{
+        $messaggiPerForm = "<div id=\"messageErrors\"><ul>" . $messaggiPerForm . "</ul></div>";
+    }
 }
 
-$paginaHTML = str_replace("{listaAlbum}" $stringaAlbum, $paginaHTML);
-$paginaHTML = str_replace("{messaggiForm}" $stringaAlbum, $paginaHTML);
+$connessione -> closeConnection();
+
+$paginaHTML = str_replace("{messaggiForm}", $messaggiPerForm, $paginaHTML);
+$paginaHTML = str_replace("{listaAlbum}", $listaAlbum, $paginaHTML);
+$paginaHTML = str_replace("{valoreTitolo}", $titolo, $paginaHTML);
+$paginaHTML = str_replace("{valoreDurata}", $durata, $paginaHTML);
+if($esplicito == 1) {
+    $paginaHTML = str_replace("{checkedYes}", $checked, $paginaHTML);
+}
+if($esplicito == 0) {
+    $paginaHTML = str_replace("{checkedNo}", $checked, $paginaHTML);
+}
+$paginaHTML = str_replace("{checkedYes}", "", $paginaHTML);
+$paginaHTML = str_replace("{checkedNo}", "", $paginaHTML);
 
 ?>
